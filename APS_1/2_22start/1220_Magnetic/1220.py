@@ -17,12 +17,16 @@ for tc in range(1, T+1):
     # 2가 맨 윗줄에 있으면 0으로 바꿔주고
     # 1이 맨 아랫줄에 있으면 0으로 바꿔준다.
     # 만약
+    ot = []
     for i in range(N):
+        tmp = ''
         for j in range(N):
             lst = arr[j][i]
-    print(lst)
+            if lst != 0:
+                tmp += str(lst)
+        ot.append(tmp)
+        # print(tmp)
+    print(ot)
 
-
-            # if arr[i][j] == 1:
 
 
