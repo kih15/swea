@@ -6,12 +6,25 @@ for tc in range(1, T+1):
     N, M = map(int, input().split())
     arrA = list(map(int, input().split()))
     arrB = list(map(int, input().split()))
-    a = 0
-    if N < M:
-        for i in range(N):
+    max_v = 0
+    if M > N:
+        for i in range(M-N+1):
+            total = 0
+            for j in range(N):
+                total += int(arrA[j]) * int(arrB[i+j])
+            if max_v < total:
+                max_v = total
+    else:
+        for i in range(N-M+1):
+            total = 0
             for j in range(M):
-                a = arrA[i] * arrB[j]
-                print(a)
+                total += int(arrA[i+j]) * int(arrB[j])
+            if max_v < total:
+                max_v = total
+
+    print(f'#{tc} {max_v}')
+
+
     #     a = 0
     #     for j in range(M-N+1):
     #         a = arrA[i] * arrB[j]
