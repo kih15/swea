@@ -28,8 +28,7 @@ for tc in range(1, T+1):
     m = [] # 중 상자
     l = [] # 대 상자
     C.sort()
-    path = []
-    used = [False for i in range(N)]
+    result = 0
 
     # func(0)
 # 상자에 당근을 넣는다. 크기가 같다면 당근을 계속 넣는데
@@ -42,15 +41,18 @@ for tc in range(1, T+1):
             s = C[:i]
             m = C[i:j]
             l = C[j:]
+
             if len(s) == 0 or len(m) == 0 or len(l) == 0:
                 continue
             # 값이 같다면 같은 상자에 넣어야 한다.
-            C[i] in s and
+            if len(s) <= N//2 and len(m) <= N//2 and len(l) <= N//2:
 
-            print(s)
-            print(m)
-            print(l)
+                result = max(len(s), len(m), len(l)) - min(len(s), len(m), len(l))
 
+                print(s)
+                print(m)
+                print(l)
+    print(result)
 
 
     # for i in range(N):

@@ -5,31 +5,17 @@ def binarysearch(target):
     global cnt
     low = 0
     high = N-1
-    cnt = 0
-    stack = []
-    h = 1
-    l = 0
+
     while low <= high:
         mid = (low + high) // 2
 
         if A[mid] == target:
-            return mid
-
+            cnt += 1
+            return cnt
         elif A[mid] > target:
             high = mid - 1
-            stack.append(h)
         else:
-            low = mid - 1
-            stack.append(l)
-
-        if len(stack) >= 2:
-            for i in range(1, len(stack)):
-                if stack[i] != stack[i-1]:
-                    cnt += 1
-                else:
-                    cnt = 0
-        else:
-            cnt += 1
+            low = mid + 1
     return -1
 
 
@@ -40,12 +26,10 @@ for tc in range(1, T+1):
     B = list(map(int, input().split()))
     A.sort()
     cnt = 0
-    ans = 0
-    res = 0
-    for i in range(N):
-        ans = binarysearch(B[i])
-        cnt += 1
+
+    for i in range(M):
+        cnt += binarysearch(B[i])
+
     print(f'#{tc}', cnt)
-    print(cnt)
 
 

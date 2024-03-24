@@ -16,7 +16,6 @@ for tc in range(1, T+1):
                 r, c = i, j
                 break
 
-
     visited = [[0] * N for _ in range(N)]
     q = []
     q.append((r, c))
